@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Projeto_Construir_Desktops
 {
-    public abstract class RepositorioAbstratoUsuarios<T> where T : IEntidade
+    public abstract class RepositorioAbstrato<T> where T : IEntidade
     {
         public abstract void Add(T usuario);
         public abstract void Update(T usuario);

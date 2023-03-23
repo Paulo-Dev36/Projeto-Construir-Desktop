@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,24 @@ namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
 {
     public partial class frmCadastroBancos : Form
     {
+        RepositorioInstituicaoBancaria repositorioInstituicao = new RepositorioInstituicaoBancaria();
         public frmCadastroBancos()
         {
             InitializeComponent();
+            MapeiaInstituicoesBancarias();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void MapeiaInstituicoesBancarias()
+        {
+            foreach (String nomeInstituicao in repositorioInstituicao.ListaNomesInstituicao())
+            {
+                comboBoxBanco.Items.Add(nomeInstituicao);
+            }
+            comboBoxBanco.SelectedIndex = 0;
         }
     }
 }

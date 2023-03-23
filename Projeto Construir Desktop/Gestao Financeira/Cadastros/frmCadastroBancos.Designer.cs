@@ -89,7 +89,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F);
-            this.label2.Location = new System.Drawing.Point(197, 82);
+            this.label2.Location = new System.Drawing.Point(222, 82);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 19);
@@ -98,13 +98,13 @@
             // 
             // textBoxMatricula
             // 
-            this.textBoxMatricula.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F);
-            this.textBoxMatricula.Location = new System.Drawing.Point(221, 103);
+            this.textBoxMatricula.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 9.75F);
+            this.textBoxMatricula.Location = new System.Drawing.Point(246, 103);
             this.textBoxMatricula.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxMatricula.MaxLength = 9;
             this.textBoxMatricula.Name = "textBoxMatricula";
             this.textBoxMatricula.ShortcutsEnabled = false;
-            this.textBoxMatricula.Size = new System.Drawing.Size(141, 27);
+            this.textBoxMatricula.Size = new System.Drawing.Size(141, 23);
             this.textBoxMatricula.TabIndex = 2;
             this.textBoxMatricula.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -121,13 +121,13 @@
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F);
+            this.textBox1.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 9.75F);
             this.textBox1.Location = new System.Drawing.Point(35, 103);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.MaxLength = 9;
             this.textBox1.Name = "textBox1";
             this.textBox1.ShortcutsEnabled = false;
-            this.textBox1.Size = new System.Drawing.Size(141, 27);
+            this.textBox1.Size = new System.Drawing.Size(141, 23);
             this.textBox1.TabIndex = 4;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -135,7 +135,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F);
-            this.label4.Location = new System.Drawing.Point(197, 17);
+            this.label4.Location = new System.Drawing.Point(222, 17);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 19);
@@ -144,13 +144,13 @@
             // 
             // textBox2
             // 
-            this.textBox2.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F);
-            this.textBox2.Location = new System.Drawing.Point(221, 39);
+            this.textBox2.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 9.75F);
+            this.textBox2.Location = new System.Drawing.Point(246, 39);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.MaxLength = 9;
             this.textBox2.Name = "textBox2";
             this.textBox2.ShortcutsEnabled = false;
-            this.textBox2.Size = new System.Drawing.Size(141, 27);
+            this.textBox2.Size = new System.Drawing.Size(141, 23);
             this.textBox2.TabIndex = 6;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -168,11 +168,11 @@
             // comboBoxBanco
             // 
             this.comboBoxBanco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxBanco.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F);
+            this.comboBoxBanco.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxBanco.FormattingEnabled = true;
             this.comboBoxBanco.Location = new System.Drawing.Point(53, 90);
             this.comboBoxBanco.Name = "comboBoxBanco";
-            this.comboBoxBanco.Size = new System.Drawing.Size(141, 27);
+            this.comboBoxBanco.Size = new System.Drawing.Size(180, 24);
             this.comboBoxBanco.TabIndex = 8;
             // 
             // panel2
@@ -192,13 +192,13 @@
             // 
             // textBox3
             // 
-            this.textBox3.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F);
-            this.textBox3.Location = new System.Drawing.Point(408, 103);
+            this.textBox3.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 9.75F);
+            this.textBox3.Location = new System.Drawing.Point(437, 103);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.MaxLength = 9;
             this.textBox3.Name = "textBox3";
             this.textBox3.ShortcutsEnabled = false;
-            this.textBox3.Size = new System.Drawing.Size(141, 27);
+            this.textBox3.Size = new System.Drawing.Size(141, 23);
             this.textBox3.TabIndex = 11;
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -206,7 +206,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F);
-            this.label6.Location = new System.Drawing.Point(392, 82);
+            this.label6.Location = new System.Drawing.Point(421, 82);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(106, 19);

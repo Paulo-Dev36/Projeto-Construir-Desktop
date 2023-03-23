@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IEntidade.cs" />
+    <Compile Include="InstituicaoBancaria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuarios.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Projeto_Construir_Desktop
 {
-    public class RepositorioUsuario : RepositorioAbstratoUsuarios<Usuarios>
+    public class RepositorioUsuario : RepositorioAbstrato<Usuarios>
     {
         private ConexaoFDB conexaoFDB = new ConexaoFDB();
 
@@ -31,7 +31,7 @@ namespace Projeto_Construir_Desktop
             {
                 var usuario = new Usuarios
                 {
-                    ID = (int)dataTable.Rows[i][0],
+                    Id = (int)dataTable.Rows[i][0],
                     Nome = dataTable.Rows[i][1].ToString(),
                     Cpf = dataTable.Rows[i][2].ToString(),
                     Email = dataTable.Rows[i][3].ToString(),
@@ -64,7 +64,7 @@ namespace Projeto_Construir_Desktop
                 if (dtble.Rows.Count > 0)
                 {
                     Usuarios usuario = new Usuarios();
-                    usuario.ID = (int)dtble.Rows[0][0];
+                    usuario.Id = (int)dtble.Rows[0][0];
                     usuario.Nome = dtble.Rows[0][1].ToString();
                     usuario.Senha = dtble.Rows[0][2].ToString();
 
