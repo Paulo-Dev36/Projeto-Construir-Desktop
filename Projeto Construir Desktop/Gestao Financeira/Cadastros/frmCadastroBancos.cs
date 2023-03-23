@@ -32,5 +32,15 @@ namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
             }
             comboBoxBanco.SelectedIndex = 0;
         }
+
+        private void buttonLimpar_Click(object sender, EventArgs e) => LimparCampos();
+        
+        private void LimparCampos()
+        {
+            txtAgencia.Clear();
+            txtContaCorrente.Clear();
+            txtNomeInstituicao.Clear();
+            txtSaldoInicial.Clear();
+        }
     }
 }
