@@ -46,7 +46,6 @@ namespace Projeto_Construir_Desktop
 
             if (respositorioAluno.Logar(usuarios.Nome, usuarios.Senha))
             {
-                MessageBox.Show("Seja bem vindo!");
                 frmPrincipal frmPrincipal = new frmPrincipal(usuarios.Nome);
                 this.Hide();
                 frmPrincipal.Show();

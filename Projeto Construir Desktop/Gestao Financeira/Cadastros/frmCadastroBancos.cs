@@ -164,9 +164,10 @@ namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
         {
             Banco banco = new Banco();
             banco.Id = (int)dgvBanco.CurrentRow.Cells[0].Value;
-
+            banco.Descricao = dgvBanco.CurrentRow.Cells[0].Value.ToString();
             repositorioBanco.Remove(banco);
             GridBancos(repositorioBanco.GetAll());
+            MessageBox.Show($"Banco {banco.Descricao} excluído com sucesso!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
