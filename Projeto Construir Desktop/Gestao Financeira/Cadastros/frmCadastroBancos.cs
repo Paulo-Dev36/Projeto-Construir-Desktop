@@ -15,8 +15,9 @@ namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
 {
     public partial class frmCadastroBancos : Form
     {
-        RepositorioInstituicaoBancaria repositorioInstituicao = new RepositorioInstituicaoBancaria();
-        RepositorioBanco repositorioBanco = new RepositorioBanco();
+        readonly RepositorioInstituicaoBancaria repositorioInstituicao = new RepositorioInstituicaoBancaria();
+        readonly RepositorioBanco repositorioBanco = new RepositorioBanco();
+        readonly Banco banco = new Banco();
 
         readonly DataTable dtTable = new DataTable();
         public frmCadastroBancos()
@@ -72,7 +73,7 @@ namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
             dtTable.Clear();
             foreach (Banco banco in bancos)
             {
-                dtTable.Rows.Add(banco.Id, banco.NomeBanco, banco.InstituicaoBancaria, banco.Agencia, banco.ContaCorrente, banco.SaltoAtual) ;
+                dtTable.Rows.Add(banco.Id, banco.Descricao, banco.InstituicaoBancaria, banco.Agencia, banco.ContaCorrente, banco.SaltoAtual) ;
             }
         }
 
@@ -80,7 +81,7 @@ namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
         {
             dtTable.Clear();
             if (banco != null)
-                dtTable.Rows.Add(banco.Id, banco.NomeBanco, banco.InstituicaoBancaria, banco.Agencia, banco.ContaCorrente, banco.SaltoAtual);
+                dtTable.Rows.Add(banco.Id, banco.Descricao, banco.InstituicaoBancaria, banco.Agencia, banco.ContaCorrente, banco.SaltoAtual);
         }
 
         private void AddColunasTabela()
@@ -139,7 +140,22 @@ namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
             buttonCancelar.Visible = false;
             buttonLimpar.Visible = true;
             LimparCampos();
-            txtSaldoInicial.ReadOnly = true;
+            txtSaldoInicial.ReadOnly = false;
+        }
+
+        private void buttonAdicionar_Click(object sender, EventArgs e)
+        {
+            //banco.Id = Int32.Parse(dgvBanco.CurrentRow.Cells[0].Value.ToString());
+            banco.InstituicaoBancaria = comboBoxBanco.Text;
+            banco.Descricao = txtNomeInstituicao.Text;
+            banco.Agencia = Int32.Parse(txtAgencia.Text);
+            banco.ContaCorrente = Int32.Parse(txtContaCorrente.Text);
+            banco.SaltoAtual = Convert.ToDouble(txtSaldoInicial.Text);
+            banco.Token = banco.ContaCorrente.ToString();
+
+            repositorioBanco.Add(banco);
+            LimparCampos();
+            GridBancos(repositorioBanco.GetAll());
         }
     }
 }
