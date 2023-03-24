@@ -138,6 +138,8 @@ namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
             buttonModificar.Visible = false;
             buttonCancelar.Visible = false;
             buttonLimpar.Visible = true;
+            LimparCampos();
+            txtSaldoInicial.ReadOnly = true;
         }
     }
 }
