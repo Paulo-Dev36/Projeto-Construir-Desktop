@@ -47,17 +47,18 @@
             this.bancosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoDeVendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orçamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.iconeCaixa = new System.Windows.Forms.PictureBox();
+            this.iconeOrcamento = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconeCaixa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconeOrcamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
@@ -240,29 +241,30 @@
             this.orçamentosToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.orçamentosToolStripMenuItem.Text = "Orçamentos";
             // 
-            // pictureBox3
+            // iconeCaixa
             // 
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = global::Projeto_Construir_Desktop.Properties.Resources.caixa_registradora;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 67);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(61, 39);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 13;
-            this.pictureBox3.TabStop = false;
+            this.iconeCaixa.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.iconeCaixa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconeCaixa.Image = global::Projeto_Construir_Desktop.Properties.Resources.caixa_registradora;
+            this.iconeCaixa.Location = new System.Drawing.Point(3, 67);
+            this.iconeCaixa.Name = "iconeCaixa";
+            this.iconeCaixa.Size = new System.Drawing.Size(61, 39);
+            this.iconeCaixa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconeCaixa.TabIndex = 13;
+            this.iconeCaixa.TabStop = false;
+            this.iconeCaixa.MouseHover += new System.EventHandler(this.IconeAtalhoCaixa);
             // 
-            // pictureBox4
+            // iconeOrcamento
             // 
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = global::Projeto_Construir_Desktop.Properties.Resources.budget;
-            this.pictureBox4.Location = new System.Drawing.Point(61, 67);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(61, 39);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 14;
-            this.pictureBox4.TabStop = false;
+            this.iconeOrcamento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.iconeOrcamento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconeOrcamento.Image = global::Projeto_Construir_Desktop.Properties.Resources.budget;
+            this.iconeOrcamento.Location = new System.Drawing.Point(61, 67);
+            this.iconeOrcamento.Name = "iconeOrcamento";
+            this.iconeOrcamento.Size = new System.Drawing.Size(61, 39);
+            this.iconeOrcamento.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconeOrcamento.TabIndex = 14;
+            this.iconeOrcamento.TabStop = false;
             // 
             // pictureBox5
             // 
@@ -285,8 +287,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.iconeOrcamento);
+            this.Controls.Add(this.iconeCaixa);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnClose);
@@ -305,8 +307,8 @@
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconeCaixa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconeOrcamento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -332,8 +334,9 @@
         private System.Windows.Forms.ToolStripMenuItem orçamentosToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox iconeCaixa;
+        private System.Windows.Forms.PictureBox iconeOrcamento;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Banco.cs" />
     <Compile Include="IEntidade.cs" />
     <Compile Include="InstituicaoBancaria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

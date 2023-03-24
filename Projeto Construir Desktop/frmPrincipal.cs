@@ -40,5 +40,17 @@ namespace Projeto_Construir_Desktop
             frmCadastroBancos frmCadastroBancos = new frmCadastroBancos();
             frmCadastroBancos.ShowDialog();
         }
+
+        private void IconeAtalhoCaixa(object sender, EventArgs e) => ConfigurarToolTip();
+
+        private void ConfigurarToolTip()
+        {
+            toolTip1.AutoPopDelay = 4000;
+            toolTip1.InitialDelay = 100;
+            toolTip1.ReshowDelay = 200;
+
+            toolTip1.SetToolTip(iconeCaixa, "ATALHO CAIXA");
+            toolTip1.SetToolTip(iconeCaixa, "ATALHO CAIXA");
+        }
     }
 }
