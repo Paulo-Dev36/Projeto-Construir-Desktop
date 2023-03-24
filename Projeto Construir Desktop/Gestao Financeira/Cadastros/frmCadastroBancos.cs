@@ -134,7 +134,10 @@ namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
-
+            buttonAdicionar.Visible = true;
+            buttonModificar.Visible = false;
+            buttonCancelar.Visible = false;
+            buttonLimpar.Visible = true;
         }
     }
 }
