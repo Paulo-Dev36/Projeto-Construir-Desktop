@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNomeInstituicao = new System.Windows.Forms.TextBox();
+            this.txtDescricaoBanco = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtAgencia = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@
             this.comboBoxBanco = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtSaldoInicial = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labelSaldoAtual = new System.Windows.Forms.Label();
             this.buttonAdicionar = new System.Windows.Forms.Button();
             this.buttonLimpar = new System.Windows.Forms.Button();
             this.dgvBanco = new System.Windows.Forms.DataGridView();
@@ -95,15 +95,15 @@
             // 
             // txtNomeInstituicao
             // 
-            this.txtNomeInstituicao.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 9.75F);
-            this.txtNomeInstituicao.Location = new System.Drawing.Point(34, 103);
-            this.txtNomeInstituicao.Margin = new System.Windows.Forms.Padding(2);
-            this.txtNomeInstituicao.MaxLength = 9;
-            this.txtNomeInstituicao.Name = "txtNomeInstituicao";
-            this.txtNomeInstituicao.ShortcutsEnabled = false;
-            this.txtNomeInstituicao.Size = new System.Drawing.Size(208, 23);
-            this.txtNomeInstituicao.TabIndex = 11;
-            this.txtNomeInstituicao.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDescricaoBanco.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 9.75F);
+            this.txtDescricaoBanco.Location = new System.Drawing.Point(34, 103);
+            this.txtDescricaoBanco.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDescricaoBanco.MaxLength = 9;
+            this.txtDescricaoBanco.Name = "txtNomeInstituicao";
+            this.txtDescricaoBanco.ShortcutsEnabled = false;
+            this.txtDescricaoBanco.Size = new System.Drawing.Size(208, 23);
+            this.txtDescricaoBanco.TabIndex = 11;
+            this.txtDescricaoBanco.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label1
             // 
@@ -180,11 +180,11 @@
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.txtSaldoInicial);
-            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.labelSaldoAtual);
             this.panel2.Controls.Add(this.txtContaCorrente);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtAgencia);
-            this.panel2.Controls.Add(this.txtNomeInstituicao);
+            this.panel2.Controls.Add(this.txtDescricaoBanco);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(18, 51);
@@ -203,17 +203,18 @@
             this.txtSaldoInicial.Size = new System.Drawing.Size(141, 23);
             this.txtSaldoInicial.TabIndex = 12;
             this.txtSaldoInicial.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSaldoInicial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSaldoInicial_KeyPress);
             // 
-            // label6
+            // labelSaldoAtual
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F);
-            this.label6.Location = new System.Drawing.Point(317, 82);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(106, 19);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Saldo Atual R$:";
+            this.labelSaldoAtual.AutoSize = true;
+            this.labelSaldoAtual.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F);
+            this.labelSaldoAtual.Location = new System.Drawing.Point(317, 82);
+            this.labelSaldoAtual.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelSaldoAtual.Name = "labelSaldoAtual";
+            this.labelSaldoAtual.Size = new System.Drawing.Size(106, 19);
+            this.labelSaldoAtual.TabIndex = 10;
+            this.labelSaldoAtual.Text = "Saldo Atual R$:";
             // 
             // buttonAdicionar
             // 
@@ -229,7 +230,7 @@
             this.buttonAdicionar.TabIndex = 12;
             this.buttonAdicionar.Text = "ADICIONAR";
             this.buttonAdicionar.UseVisualStyleBackColor = false;
-            this.buttonAdicionar.Click += new System.EventHandler(this.buttonAdicionar_Click);
+            this.buttonAdicionar.Click += new System.EventHandler(this.ButtonAdicionar_Click);
             // 
             // buttonLimpar
             // 
@@ -252,35 +253,35 @@
             this.dgvBanco.AllowUserToDeleteRows = false;
             this.dgvBanco.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBanco.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBanco.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBanco.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBanco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBanco.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBanco.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBanco.Location = new System.Drawing.Point(18, 232);
             this.dgvBanco.MultiSelect = false;
             this.dgvBanco.Name = "dgvBanco";
             this.dgvBanco.ReadOnly = true;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBanco.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBanco.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBanco.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBanco.Size = new System.Drawing.Size(854, 162);
             this.dgvBanco.TabIndex = 14;
@@ -299,6 +300,7 @@
             this.buttonDelete.TabIndex = 18;
             this.buttonDelete.Text = "EXCLUIR";
             this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonEdit
             // 
@@ -319,7 +321,6 @@
             // bindingSource1
             // 
             this.bindingSource1.DataSource = typeof(DomainClass.Banco);
-            this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
             // 
             // buttonCancelar
             // 
@@ -392,7 +393,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNomeInstituicao;
+        private System.Windows.Forms.TextBox txtDescricaoBanco;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtAgencia;
         private System.Windows.Forms.Label label4;
@@ -401,7 +402,7 @@
         private System.Windows.Forms.ComboBox comboBoxBanco;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtSaldoInicial;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelSaldoAtual;
         private System.Windows.Forms.Button buttonAdicionar;
         private System.Windows.Forms.Button buttonLimpar;
         private System.Windows.Forms.BindingSource bindingSource1;

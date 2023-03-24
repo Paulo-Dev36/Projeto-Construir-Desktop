@@ -84,9 +84,16 @@ namespace Repository
             return bancos;
         }
 
-        public override void Remove(Banco usuario)
+        public override void Remove(Banco banco)
         {
-            throw new NotImplementedException();
+            FbConnection connect = conexaoFDB.ConexaoBanco();
+            connect.Open();
+
+            var delete = $@"DELETE FROM TBBANCO WHERE IDBANCO = {banco.Id}";
+            var cmd = connect.CreateCommand();
+            cmd.CommandText = delete;
+
+            cmd.ExecuteNonQuery();
         }
 
         public override void Update(Banco usuario)

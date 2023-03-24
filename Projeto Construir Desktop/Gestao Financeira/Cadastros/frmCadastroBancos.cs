@@ -18,6 +18,8 @@ namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
         readonly RepositorioInstituicaoBancaria repositorioInstituicao = new RepositorioInstituicaoBancaria();
         readonly RepositorioBanco repositorioBanco = new RepositorioBanco();
         readonly Banco banco = new Banco();
+        Componentes componentes = new Componentes();
+        readonly ValidadorBanco validadorBanco = new ValidadorBanco();
 
         readonly DataTable dtTable = new DataTable();
         public frmCadastroBancos()
@@ -26,12 +28,10 @@ namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
             MapeiaInstituicoesBancarias();
             AddColunasTabela();
             GridBancos(repositorioBanco.GetAll());
+
+            txtSaldoInicial.Text = string.Format("{0:#,##0.00}", 0d);
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         private void MapeiaInstituicoesBancarias()
         {
             foreach (String nomeInstituicao in repositorioInstituicao.ListaNomesInstituicao())
@@ -47,8 +47,8 @@ namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
         {
             txtAgencia.Clear();
             txtContaCorrente.Clear();
-            txtNomeInstituicao.Clear();
-            txtSaldoInicial.Clear();
+            txtDescricaoBanco.Clear();
+            txtSaldoInicial.Text = string.Format("{0:#,##0.00}", 0d);
         }
         private void GridBancos(Banco banco)
         {
@@ -94,23 +94,18 @@ namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
             dtTable.Columns.Add("Saldo Atual", typeof(double));
         }
 
-        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             if(dgvBanco.Columns.Count > 0)
             {
-                txtNomeInstituicao.Text = dgvBanco.CurrentRow.Cells[1].Value.ToString();
+                txtDescricaoBanco.Text = dgvBanco.CurrentRow.Cells[1].Value.ToString();
                 comboBoxBanco.Text = dgvBanco.CurrentRow.Cells[2].Value.ToString();
                 txtAgencia.Text = dgvBanco.CurrentRow.Cells[3].Value.ToString();
                 txtContaCorrente.Text = dgvBanco.CurrentRow.Cells[4].Value.ToString();
 
                 txtSaldoInicial.Text = Convert.ToDouble(dgvBanco.CurrentRow.Cells[5].Value).ToString("C");
-                txtSaldoInicial.ReadOnly = true;
-
+                labelSaldoAtual.Visible = false;
+                txtSaldoInicial.Visible = false;
                 buttonAdicionar.Visible = false;
                 buttonModificar.Visible = true;
                 buttonCancelar.Visible = true;
@@ -118,15 +113,9 @@ namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
             }
         }
 
-        private void txtAgencia_KeyPress(object sender, KeyPressEventArgs e) => PermitirSomenteNumeros(sender, e);
+        private void txtAgencia_KeyPress(object sender, KeyPressEventArgs e) => componentes.PermitirSomenteNumeros(sender, e);
 
-        private void txtContaCorrente_KeyPress(object sender, KeyPressEventArgs e) => PermitirSomenteNumeros(sender, e);
-
-        private void PermitirSomenteNumeros(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && (char)Keys.Back != e.KeyChar)
-                e.Handled = true;
-        }
+        private void txtContaCorrente_KeyPress(object sender, KeyPressEventArgs e) => componentes.PermitirSomenteNumeros(sender, e);
 
         private void buttonModificar_Click(object sender, EventArgs e)
         {
@@ -136,24 +125,47 @@ namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             buttonAdicionar.Visible = true;
+            buttonLimpar.Visible = true;
             buttonModificar.Visible = false;
             buttonCancelar.Visible = false;
-            buttonLimpar.Visible = true;
+            
+            txtSaldoInicial.Visible = true;
+            labelSaldoAtual.Visible = true;
+
             LimparCampos();
-            txtSaldoInicial.ReadOnly = false;
         }
 
-        private void buttonAdicionar_Click(object sender, EventArgs e)
+        private void ButtonAdicionar_Click(object sender, EventArgs e)
         {
+            if (validadorBanco.EhCampoVazio(txtAgencia.Text, txtContaCorrente.Text, txtDescricaoBanco.Text, 
+                Convert.ToDouble(txtSaldoInicial.Text)))
+            {
+                return;
+            }
             banco.InstituicaoBancaria = comboBoxBanco.Text;
-            banco.Descricao = txtNomeInstituicao.Text;
+            banco.Descricao = txtDescricaoBanco.Text;
             banco.Agencia = Int32.Parse(txtAgencia.Text);
             banco.ContaCorrente = Int32.Parse(txtContaCorrente.Text);
             banco.SaltoAtual = Convert.ToDouble(txtSaldoInicial.Text);
             banco.Token = banco.ContaCorrente.ToString();
 
             repositorioBanco.Add(banco);
+            GridBancos(repositorioBanco.GetAll());
             LimparCampos();
+        }
+
+        private void txtSaldoInicial_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            componentes.PermitirSomenteNumeros(sender, e);
+            componentes.FormatarEmReais(sender, e);
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            Banco banco = new Banco();
+            banco.Id = (int)dgvBanco.CurrentRow.Cells[0].Value;
+
+            repositorioBanco.Remove(banco);
             GridBancos(repositorioBanco.GetAll());
         }
     }
