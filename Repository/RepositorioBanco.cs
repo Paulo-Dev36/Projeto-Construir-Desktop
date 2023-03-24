@@ -43,7 +43,7 @@ namespace Repository
                 {
                     Id = (int)dataTable.Rows[i][0],
                     Token = dataTable.Rows[i][1].ToString(),
-                    CodigoBanco = (int)dataTable.Rows[i][2],
+                    InstituicaoBancaria = dataTable.Rows[i][2].ToString(),
                     NomeBanco = dataTable.Rows[i][3].ToString(),
                     Agencia = (int)dataTable.Rows[i][4],
                     ContaCorrente = (int)dataTable.Rows[i][5],

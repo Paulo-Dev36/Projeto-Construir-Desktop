@@ -6,7 +6,7 @@ namespace DomainClass
     {
         public int Id { get; set; }
         public string Token { get; set; }
-        public int CodigoBanco { get; set; }
+        public string InstituicaoBancaria { get; set; }
         public string NomeBanco { get; set; }
         public int Agencia { get; set; }
         public int ContaCorrente { get; set; }

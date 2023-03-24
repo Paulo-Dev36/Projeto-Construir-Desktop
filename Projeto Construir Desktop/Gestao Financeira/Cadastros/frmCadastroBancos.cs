@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
 {
@@ -60,14 +61,8 @@ namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
             DadosDataTable(bancos);
             bindingSource1.DataSource = dtTable;
             dgvBanco.DataSource = bindingSource1;
-            //dgvBanco.Columns[0].Width = 50;
-            //dgvBanco.Columns[1].Width = 150;
-            //dgvBanco.Columns[2].Width = 150;
-            //dgvBanco.Columns[3].Width = 150;
-            //dgvBanco.Columns[4].Width = 120;
             dgvBanco.EnableHeadersVisualStyles = false;
             dgvBanco.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
-            //dgvBanco.ColumnHeadersDefaultCellStyle.BackColor = Color.Silver;
             dgvBanco.ColumnHeadersDefaultCellStyle.Font = new Font(DataGridView.DefaultFont, FontStyle.Bold);
             dgvBanco.Columns[5].DefaultCellStyle.Format = "C2";
         }
@@ -77,7 +72,7 @@ namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
             dtTable.Clear();
             foreach (Banco banco in bancos)
             {
-                dtTable.Rows.Add(banco.Id, banco.NomeBanco, banco.Agencia, banco.CodigoBanco, banco.ContaCorrente, banco.SaltoAtual) ;
+                dtTable.Rows.Add(banco.Id, banco.NomeBanco, banco.InstituicaoBancaria, banco.Agencia, banco.ContaCorrente, banco.SaltoAtual) ;
             }
         }
 
@@ -85,20 +80,59 @@ namespace Projeto_Construir_Desktop.Gestao_Financeira.Cadastros
         {
             dtTable.Clear();
             if (banco != null)
-                dtTable.Rows.Add(banco.Id, banco.NomeBanco, banco.Agencia, banco.CodigoBanco, banco.ContaCorrente, banco.SaltoAtual);
+                dtTable.Rows.Add(banco.Id, banco.NomeBanco, banco.InstituicaoBancaria, banco.Agencia, banco.ContaCorrente, banco.SaltoAtual);
         }
 
         private void AddColunasTabela()
         {
             dtTable.Columns.Add("Cod", typeof(int));
-            dtTable.Columns.Add("Nome Banco", typeof(string));
+            dtTable.Columns.Add("Descrição", typeof(string));
+            dtTable.Columns.Add("Instituição Bancária", typeof(string));
             dtTable.Columns.Add("Agência", typeof(int));
-            dtTable.Columns.Add("Instituição Bancária", typeof(int));
             dtTable.Columns.Add("Conta Corrente", typeof(int));
             dtTable.Columns.Add("Saldo Atual", typeof(double));
         }
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            if(dgvBanco.Columns.Count > 0)
+            {
+                txtNomeInstituicao.Text = dgvBanco.CurrentRow.Cells[1].Value.ToString();
+                comboBoxBanco.Text = dgvBanco.CurrentRow.Cells[2].Value.ToString();
+                txtAgencia.Text = dgvBanco.CurrentRow.Cells[3].Value.ToString();
+                txtContaCorrente.Text = dgvBanco.CurrentRow.Cells[4].Value.ToString();
+
+                txtSaldoInicial.Text = Convert.ToDouble(dgvBanco.CurrentRow.Cells[5].Value).ToString("C");
+                txtSaldoInicial.ReadOnly = true;
+
+                buttonAdicionar.Visible = false;
+                buttonModificar.Visible = true;
+                buttonCancelar.Visible = true;
+                buttonLimpar.Visible = false;
+            }
+        }
+
+        private void txtAgencia_KeyPress(object sender, KeyPressEventArgs e) => PermitirSomenteNumeros(sender, e);
+
+        private void txtContaCorrente_KeyPress(object sender, KeyPressEventArgs e) => PermitirSomenteNumeros(sender, e);
+
+        private void PermitirSomenteNumeros(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && (char)Keys.Back != e.KeyChar)
+                e.Handled = true;
+        }
+
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
         {
 
         }
