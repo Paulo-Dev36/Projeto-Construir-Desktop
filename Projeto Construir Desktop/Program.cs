@@ -17,7 +17,7 @@ namespace Projeto_Construir_Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmCadastroBancos());
+            Application.Run(new frmLogin());
         }
     }
 }
