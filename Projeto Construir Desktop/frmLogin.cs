@@ -13,10 +13,7 @@ namespace Projeto_Construir_Desktop
             MapeiaNomeUsuarios();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        private void btnClose_Click(object sender, EventArgs e) => Application.Exit();
 
         private void imgOlhosAbertos_Click(object sender, EventArgs e)
         {
@@ -28,7 +25,7 @@ namespace Projeto_Construir_Desktop
             }
         }
 
-        private void imgOlhosFechados_Click(object sender, EventArgs e)
+        private void ImgOlhosFechados_Click(object sender, EventArgs e)
         {
             if (txtSenha.UseSystemPasswordChar)
             {
@@ -65,9 +62,7 @@ namespace Projeto_Construir_Desktop
             comboBoxUsuarios.SelectedIndex = 0;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            this.label2.Text = DateTime.Now.ToString("HH:mm:ss");
-        }
+        private void timer1_Tick(object sender, EventArgs e) => this.label2.Text = DateTime.Now.ToString("HH:mm:ss");
+        ()
     }
 }

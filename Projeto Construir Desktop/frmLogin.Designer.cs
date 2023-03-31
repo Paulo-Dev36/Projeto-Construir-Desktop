@@ -146,13 +146,13 @@
             // 
             this.imgOlhosFechados.Cursor = System.Windows.Forms.Cursors.Hand;
             this.imgOlhosFechados.Image = global::Projeto_Construir_Desktop.Properties.Resources.hide;
-            this.imgOlhosFechados.Location = new System.Drawing.Point(428, 281);
+            this.imgOlhosFechados.Location = new System.Drawing.Point(457, 281);
             this.imgOlhosFechados.Name = "imgOlhosFechados";
             this.imgOlhosFechados.Size = new System.Drawing.Size(38, 27);
             this.imgOlhosFechados.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgOlhosFechados.TabIndex = 6;
             this.imgOlhosFechados.TabStop = false;
-            this.imgOlhosFechados.Click += new System.EventHandler(this.imgOlhosFechados_Click);
+            this.imgOlhosFechados.Click += new System.EventHandler(this.ImgOlhosFechados_Click);
             // 
             // pictureBox1
             // 
